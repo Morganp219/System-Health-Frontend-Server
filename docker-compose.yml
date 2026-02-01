@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  system-monitor:
+    build: .
+    container_name: system-monitor-backend
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - SAMPLE_INTERVAL_MS=1000
+      - HISTORY_POINTS=60
+    restart: unless-stopped
