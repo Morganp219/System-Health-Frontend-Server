@@ -291,6 +291,10 @@ async function collectSnapshot() {
   return payload;
 }
 
+setInterval(()=> {
+ if (lastPayload) io.emit("health:update", lastPayload);
+}, 1000)
+
 // ---------- socket.io ----------
 io.on("connection", (socket) => {
   console.log("Client connected:", socket.id);
